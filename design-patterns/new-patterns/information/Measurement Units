@@ -1,0 +1,33 @@
+flowchart BT
+    i_report{"Soil Carbon Measurement Report"} -- rdf:type --> c_ibe["cco:InformationBearingEntity"]
+    i_table{"Table 1"} -- rdf:type --> c_ibe
+    i_ice{"Soil Carbon Report Text"} -- rdf:type --> c_ice["cco:InformationContentEntity"]
+    i_kiloton{"Kiloton (kt)"} -- rdf:type --> c_mu["cco:MeasurementUnit"]
+    i_report -- has_part --> i_table
+    i_report -- carries --> i_ice
+    i_carbon_measurement{"Carbon Measurement"} -- uses_measurement_unit --> i_kiloton
+    i_ice -- is_about --> i_carbon_measurement
+    i_carbon_measurement -- has_text_value --> val_measurement_value["Value: 15.2"]
+
+     i_report:::purple
+     c_ibe:::yellow
+     i_table:::purple
+     i_ice:::purple
+     c_ice:::yellow
+     i_kiloton:::purple
+     c_mu:::yellow
+     i_carbon_measurement:::purple
+     val_measurement_value:::white
+    classDef yellow fill:#ffe680
+    classDef purple fill:#dbc9ef, shape:diamond
+    classDef white fill:#ffffff
+    style i_report stroke:#000000
+    style c_ibe stroke:#000000
+    style i_table stroke:#000000
+    style i_ice stroke:#000000
+    style c_ice stroke:#000000
+    style i_kiloton stroke:#000000
+    style c_mu stroke:#000000
+    style i_carbon_measurement stroke:#000000
+    style val_measurement_value stroke:#000000
+
